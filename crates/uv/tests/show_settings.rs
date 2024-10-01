@@ -3679,7 +3679,7 @@ fn allow_insecure_host() -> anyhow::Result<()> {
     Ok(())
 }
 
-/// Deserialize an insecure host.
+/// Prioritize indexes defined across multiple configuration sources.
 #[test]
 #[cfg_attr(
     windows,

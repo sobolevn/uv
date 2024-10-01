@@ -142,13 +142,11 @@ uv run [OPTIONS] <COMMAND>
 
 <p>This option is only available when running in a project.</p>
 
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -184,13 +182,11 @@ uv run [OPTIONS] <COMMAND>
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--isolated</code></dt><dd><p>Run the command in an isolated virtual environment.</p>
@@ -700,13 +696,11 @@ uv add [OPTIONS] <PACKAGES|--requirements <REQUIREMENTS>>
 
 <p>To add this dependency to an optional group in the current project instead, see <code>--optional</code>.</p>
 
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -742,13 +736,11 @@ uv add [OPTIONS] <PACKAGES|--requirements <REQUIREMENTS>>
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>
@@ -1035,13 +1027,11 @@ uv remove [OPTIONS] <PACKAGES>...
 <p>Accepts both RFC 3339 timestamps (e.g., <code>2006-12-02T02:07:43Z</code>) and local dates in the same format (e.g., <code>2006-12-02</code>) in your system&#8217;s configured time zone.</p>
 
 <p>May also be set with the <code>UV_EXCLUDE_NEWER</code> environment variable.</p>
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -1077,13 +1067,11 @@ uv remove [OPTIONS] <PACKAGES>...
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>
@@ -1358,13 +1346,11 @@ uv sync [OPTIONS]
 
 <p>Note that all optional dependencies are always included in the resolution; this option only affects the selection of packages to install.</p>
 
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -1400,13 +1386,11 @@ uv sync [OPTIONS]
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--inexact</code></dt><dd><p>Do not remove extraneous packages present in the environment.</p>
@@ -1679,13 +1663,11 @@ uv lock [OPTIONS]
 <p>Accepts both RFC 3339 timestamps (e.g., <code>2006-12-02T02:07:43Z</code>) and local dates in the same format (e.g., <code>2006-12-02</code>) in your system&#8217;s configured time zone.</p>
 
 <p>May also be set with the <code>UV_EXCLUDE_NEWER</code> environment variable.</p>
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -1719,13 +1701,11 @@ uv lock [OPTIONS]
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>
@@ -1976,13 +1956,11 @@ uv export [OPTIONS]
 
 <p>May be provided more than once.</p>
 
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -2028,13 +2006,11 @@ uv export [OPTIONS]
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>
@@ -2302,13 +2278,11 @@ uv tree [OPTIONS]
 <p>Accepts both RFC 3339 timestamps (e.g., <code>2006-12-02T02:07:43Z</code>) and local dates in the same format (e.g., <code>2006-12-02</code>) in your system&#8217;s configured time zone.</p>
 
 <p>May also be set with the <code>UV_EXCLUDE_NEWER</code> environment variable.</p>
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -2344,13 +2318,11 @@ uv tree [OPTIONS]
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--invert</code></dt><dd><p>Show the reverse dependencies for the given package. This flag will invert the tree and display the packages that depend on the given package</p>
@@ -2691,13 +2663,11 @@ uv tool run [OPTIONS] [COMMAND]
 <p>Accepts both RFC 3339 timestamps (e.g., <code>2006-12-02T02:07:43Z</code>) and local dates in the same format (e.g., <code>2006-12-02</code>) in your system&#8217;s configured time zone.</p>
 
 <p>May also be set with the <code>UV_EXCLUDE_NEWER</code> environment variable.</p>
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -2733,13 +2703,11 @@ uv tool run [OPTIONS] [COMMAND]
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--isolated</code></dt><dd><p>Run the tool in an isolated virtual environment, ignoring any already-installed tools</p>
@@ -2997,13 +2965,11 @@ uv tool install [OPTIONS] <PACKAGE>
 <p>Accepts both RFC 3339 timestamps (e.g., <code>2006-12-02T02:07:43Z</code>) and local dates in the same format (e.g., <code>2006-12-02</code>) in your system&#8217;s configured time zone.</p>
 
 <p>May also be set with the <code>UV_EXCLUDE_NEWER</code> environment variable.</p>
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -3039,13 +3005,11 @@ uv tool install [OPTIONS] <PACKAGE>
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>
@@ -3299,13 +3263,11 @@ uv tool upgrade [OPTIONS] <NAME>...
 <p>Accepts both RFC 3339 timestamps (e.g., <code>2006-12-02T02:07:43Z</code>) and local dates in the same format (e.g., <code>2006-12-02</code>) in your system&#8217;s configured time zone.</p>
 
 <p>May also be set with the <code>UV_EXCLUDE_NEWER</code> environment variable.</p>
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -3337,13 +3299,11 @@ uv tool upgrade [OPTIONS] <NAME>...
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>
@@ -4881,13 +4841,11 @@ uv pip compile [OPTIONS] <SRC_FILE>...
 
 <p>Only applies to <code>pyproject.toml</code>, <code>setup.py</code>, and <code>setup.cfg</code> sources.</p>
 
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -4921,13 +4879,11 @@ uv pip compile [OPTIONS] <SRC_FILE>...
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>
@@ -5287,13 +5243,11 @@ uv pip sync [OPTIONS] <SRC_FILE>...
 <p>Accepts both RFC 3339 timestamps (e.g., <code>2006-12-02T02:07:43Z</code>) and local dates in the same format (e.g., <code>2006-12-02</code>) in your system&#8217;s configured time zone.</p>
 
 <p>May also be set with the <code>UV_EXCLUDE_NEWER</code> environment variable.</p>
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -5325,13 +5279,11 @@ uv pip sync [OPTIONS] <SRC_FILE>...
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>
@@ -5647,13 +5599,11 @@ uv pip install [OPTIONS] <PACKAGE|--requirement <REQUIREMENT>|--editable <EDITAB
 
 <p>Only applies to <code>pyproject.toml</code>, <code>setup.py</code>, and <code>setup.cfg</code> sources.</p>
 
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -5685,13 +5635,11 @@ uv pip install [OPTIONS] <PACKAGE|--requirement <REQUIREMENT>|--editable <EDITAB
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>
@@ -6834,13 +6782,11 @@ uv venv [OPTIONS] [PATH]
 <p>Accepts both RFC 3339 timestamps (e.g., <code>2006-12-02T02:07:43Z</code>) and local dates in the same format (e.g., <code>2006-12-02</code>) in your system&#8217;s configured time zone.</p>
 
 <p>May also be set with the <code>UV_EXCLUDE_NEWER</code> environment variable.</p>
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -6872,13 +6818,11 @@ uv venv [OPTIONS] [PATH]
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>
@@ -7099,13 +7043,11 @@ uv build [OPTIONS] [SRC]
 <p>Accepts both RFC 3339 timestamps (e.g., <code>2006-12-02T02:07:43Z</code>) and local dates in the same format (e.g., <code>2006-12-02</code>) in your system&#8217;s configured time zone.</p>
 
 <p>May also be set with the <code>UV_EXCLUDE_NEWER</code> environment variable.</p>
-</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
+</dd><dt><code>--extra-index-url</code> <i>extra-index-url</i></dt><dd><p>(Deprecated: use <code>--index</code> instead) Extra URLs of package indexes to use, in addition to <code>--index-url</code>.</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>All indexes provided via this flag take priority over the index specified by <code>--index-url</code> (which defaults to PyPI). When multiple <code>--extra-index-url</code> flags are provided, earlier values take priority.</p>
-
-<p>(Deprecated: use <code>--index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_EXTRA_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--find-links</code>, <code>-f</code> <i>find-links</i></dt><dd><p>Locations to search for candidate distributions, in addition to those found in the registry indexes.</p>
@@ -7137,13 +7079,11 @@ uv build [OPTIONS] [SRC]
 
 <li><code>unsafe-best-match</code>:  Search for every package name across all indexes, preferring the &quot;best&quot; version found. If a package version is in multiple indexes, only look at the entry for the first index</li>
 </ul>
-</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
+</dd><dt><code>--index-url</code>, <code>-i</code> <i>index-url</i></dt><dd><p>(Deprecated: use <code>--default-index</code> instead) The URL of the Python package index (by default: &lt;https://pypi.org/simple&gt;).</p>
 
 <p>Accepts either a repository compliant with PEP 503 (the simple repository API), or a local directory laid out in the same format.</p>
 
 <p>The index given by this flag is given lower priority than all other indexes specified via the <code>--extra-index-url</code> flag.</p>
-
-<p>(Deprecated: use <code>--default-index</code> instead.)</p>
 
 <p>May also be set with the <code>UV_INDEX_URL</code> environment variable.</p>
 </dd><dt><code>--keyring-provider</code> <i>keyring-provider</i></dt><dd><p>Attempt to use <code>keyring</code> for authentication for index URLs.</p>

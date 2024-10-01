@@ -3746,19 +3746,17 @@ pub struct IndexArgs {
     #[arg(long, env = "UV_DEFAULT_INDEX", value_parser = parse_default_index_source, help_heading = "Index options")]
     pub default_index: Option<Maybe<Index>>,
 
-    /// The URL of the Python package index (by default: <https://pypi.org/simple>).
+    /// (Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>).
     ///
     /// Accepts either a repository compliant with PEP 503 (the simple repository API), or a local
     /// directory laid out in the same format.
     ///
     /// The index given by this flag is given lower priority than all other
     /// indexes specified via the `--extra-index-url` flag.
-    ///
-    /// (Deprecated: use `--default-index` instead.)
     #[arg(long, short, env = "UV_INDEX_URL", value_parser = parse_index_url, help_heading = "Index options")]
     pub index_url: Option<Maybe<IndexUrl>>,
 
-    /// Extra URLs of package indexes to use, in addition to `--index-url`.
+    /// (Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`.
     ///
     /// Accepts either a repository compliant with PEP 503 (the simple repository API), or a local
     /// directory laid out in the same format.
@@ -3766,8 +3764,6 @@ pub struct IndexArgs {
     /// All indexes provided via this flag take priority over the index specified by
     /// `--index-url` (which defaults to PyPI). When multiple `--extra-index-url` flags are
     /// provided, earlier values take priority.
-    ///
-    /// (Deprecated: use `--index` instead.)
     #[arg(long, env = "UV_EXTRA_INDEX_URL", value_delimiter = ' ', value_parser = parse_index_url, help_heading = "Index options")]
     pub extra_index_url: Option<Vec<Maybe<IndexUrl>>>,
 
