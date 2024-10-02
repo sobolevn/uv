@@ -1,5 +1,6 @@
 use crate::PythonRunnerOutput;
 use itertools::Itertools;
+use owo_colors::OwoColorize;
 use regex::Regex;
 use std::env;
 use std::fmt::{Display, Formatter};
@@ -71,15 +72,31 @@ pub enum Error {
     Virtualenv(#[from] uv_virtualenv::Error),
     #[error("Failed to run `{0}`")]
     CommandFailed(PathBuf, #[source] io::Error),
-    #[error("{message} ({exit_code})\n--- stdout:\n{stdout}\n--- stderr:\n{stderr}\n---")]
+    #[error("{message} ({exit_code})\n\n{}\n{stdout}\n\n{}\n{stderr}\n", "[stdout]".red(), "[stderr]".red())]
     BuildBackendOutput {
         message: String,
         exit_code: ExitStatus,
         stdout: String,
         stderr: String,
     },
-    /// Nudge the user towards installing the missing dev library
-    #[error("{message} ({exit_code})\n--- stdout:\n{stdout}\n--- stderr:\n{stderr}\n---")]
+    #[error("{message} ({exit_code})\n\n{}\n{stdout}\n", "[stdout]".red())]
+    BuildBackendStdout {
+        message: String,
+        exit_code: ExitStatus,
+        stdout: String,
+    },
+    #[error("{message} ({exit_code})\n\n{}\n{stderr}\n", "[stderr]".red())]
+    BuildBackendStderr {
+        message: String,
+        exit_code: ExitStatus,
+        stderr: String,
+    },
+    #[error("{message} ({exit_code})")]
+    BuildBackend {
+        message: String,
+        exit_code: ExitStatus,
+    },
+    #[error("{message} ({exit_code})\n\n{}\n{stdout}\n\n{}\n{stderr}\n", "[stdout]".red(), "[stderr]".red())]
     MissingHeaderOutput {
         message: String,
         exit_code: ExitStatus,
@@ -88,10 +105,21 @@ pub enum Error {
         #[source]
         missing_header_cause: MissingHeaderCause,
     },
-    #[error("{message} ({exit_code})")]
-    BuildBackend {
+    #[error("{message} ({exit_code})\n\n{}\n{stdout}\n", "[stdout]".red())]
+    MissingHeaderStdout {
         message: String,
         exit_code: ExitStatus,
+        stdout: String,
+        #[source]
+        missing_header_cause: MissingHeaderCause,
+    },
+    #[error("{message} ({exit_code})\n\n{}\n{stderr}\n", "[stderr]".red())]
+    MissingHeaderStderr {
+        message: String,
+        exit_code: ExitStatus,
+        stderr: String,
+        #[source]
+        missing_header_cause: MissingHeaderCause,
     },
     #[error("{message} ({exit_code})")]
     MissingHeader {
@@ -251,18 +279,56 @@ impl Error {
                         version_id: version_id.map(ToString::to_string),
                     },
                 },
-                BuildOutput::Debug => Self::MissingHeaderOutput {
-                    message,
-                    exit_code: output.status,
-                    stdout: output.stdout.iter().join("\n"),
-                    stderr: output.stderr.iter().join("\n"),
-                    missing_header_cause: MissingHeaderCause {
-                        missing_library,
-                        package_name: name.cloned(),
-                        package_version: version.cloned(),
-                        version_id: version_id.map(ToString::to_string),
-                    },
-                },
+                BuildOutput::Debug => {
+                    let has_stdout = output.stdout.iter().any(|line| !line.trim().is_empty());
+                    let has_stderr = output.stderr.iter().any(|line| !line.trim().is_empty());
+                    match (has_stdout, has_stderr) {
+                        (true, true) => Self::MissingHeaderOutput {
+                            message,
+                            exit_code: output.status,
+                            stdout: output.stdout.iter().join("\n"),
+                            stderr: output.stderr.iter().join("\n"),
+                            missing_header_cause: MissingHeaderCause {
+                                missing_library,
+                                package_name: name.cloned(),
+                                package_version: version.cloned(),
+                                version_id: version_id.map(ToString::to_string),
+                            },
+                        },
+                        (false, true) => Self::MissingHeaderStderr {
+                            message,
+                            exit_code: output.status,
+                            stderr: output.stderr.iter().join("\n"),
+                            missing_header_cause: MissingHeaderCause {
+                                missing_library,
+                                package_name: name.cloned(),
+                                package_version: version.cloned(),
+                                version_id: version_id.map(ToString::to_string),
+                            },
+                        },
+                        (true, false) => Self::MissingHeaderStdout {
+                            message,
+                            exit_code: output.status,
+                            stdout: output.stdout.iter().join("\n"),
+                            missing_header_cause: MissingHeaderCause {
+                                missing_library,
+                                package_name: name.cloned(),
+                                package_version: version.cloned(),
+                                version_id: version_id.map(ToString::to_string),
+                            },
+                        },
+                        (false, false) => Self::MissingHeader {
+                            message,
+                            exit_code: output.status,
+                            missing_header_cause: MissingHeaderCause {
+                                missing_library,
+                                package_name: name.cloned(),
+                                package_version: version.cloned(),
+                                version_id: version_id.map(ToString::to_string),
+                            },
+                        },
+                    }
+                }
             };
         }
 
@@ -271,12 +337,32 @@ impl Error {
                 message,
                 exit_code: output.status,
             },
-            BuildOutput::Debug => Self::BuildBackendOutput {
-                message,
-                exit_code: output.status,
-                stdout: output.stdout.iter().join("\n"),
-                stderr: output.stderr.iter().join("\n"),
-            },
+            BuildOutput::Debug => {
+                let has_stdout = output.stdout.iter().any(|line| !line.trim().is_empty());
+                let has_stderr = output.stderr.iter().any(|line| !line.trim().is_empty());
+                match (has_stdout, has_stderr) {
+                    (true, true) => Self::BuildBackendOutput {
+                        message,
+                        exit_code: output.status,
+                        stdout: output.stdout.iter().join("\n"),
+                        stderr: output.stderr.iter().join("\n"),
+                    },
+                    (false, true) => Self::BuildBackendStderr {
+                        message,
+                        exit_code: output.status,
+                        stderr: output.stderr.iter().join("\n"),
+                    },
+                    (true, false) => Self::BuildBackendStdout {
+                        message,
+                        exit_code: output.status,
+                        stdout: output.stdout.iter().join("\n"),
+                    },
+                    (false, false) => Self::BuildBackend {
+                        message,
+                        exit_code: output.status,
+                    },
+                }
+            }
         }
     }
 }
